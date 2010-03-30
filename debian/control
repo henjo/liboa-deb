@@ -1,0 +1,21 @@
+Source: liboa
+Priority: extra
+Maintainer: Henrik Johansson <henrik@johome.net>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.1
+Section: libs
+Homepage: http://www.si2.org
+
+Package: liboa-dev
+Section: libdevel
+Architecture: any
+Depends: liboa2 (= ${binary:Version})
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
+
+Package: liboa2
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>

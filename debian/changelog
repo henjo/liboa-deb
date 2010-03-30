@@ -1,0 +1,5 @@
+liboa (2.2p084-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Henrik Johansson <henrik@johome.net>  Tue, 30 Mar 2010 18:58:00 +0200
