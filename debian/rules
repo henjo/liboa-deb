@@ -36,7 +36,7 @@ build-stamp: configure-stamp
 	dh_testdir
 
 	# Add here commands to compile the package.
-	$(MAKE) -f oa/GNUmakefile
+	$(MAKE) -C oa
 
 	touch $@
 
@@ -46,7 +46,7 @@ clean:
 	rm -f build-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	$(MAKE) clean
+	$(MAKE) -C oa clean
 
 	dh_clean 
 
