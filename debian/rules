@@ -36,7 +36,7 @@ build-stamp: configure-stamp
 	dh_testdir
 
 	# Add here commands to compile the package.
-	$(MAKE) -C oa
+	$(MAKE) -C oa install_oa
 
 	touch $@
 
@@ -57,7 +57,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/tmp
-	$(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
+	$(MAKE) PROD_DIR=$(CURDIR)/debian/tmp install_oa
 
 
 # Build architecture-independent files here.
