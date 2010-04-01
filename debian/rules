@@ -36,7 +36,7 @@ build-stamp: configure-stamp
 	dh_testdir
 
 	# Add here commands to compile the package.
-	$(MAKE) -C oa install_oa
+#	$(MAKE) -C oa update_oa
 
 	touch $@
 
