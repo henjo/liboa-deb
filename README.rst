@@ -6,6 +6,8 @@ si2.org.
 
 The instruction in this guide is currently only tested with Ubuntu 9.10
 
+Current OA version 2.2p084
+
 Download
 ========
 
