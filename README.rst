@@ -27,12 +27,14 @@ Create a clone of liboa-deb
 Create an oa directory in the root of the liboa-deb clone
 
 ::
+
 	cd liboa-2.2p084
 	mkdir oa
 
 Unpack downloaded files
 
 ::
+
 	cd oa
 	tar zxf /path/to/downloads/oaSrc_X.XpXXX_all.tar.gz
 	tar zxf /path/to/downloads/oaInc_X.XpXXX_all.tar.gz
@@ -42,17 +44,20 @@ Unpack downloaded files
 Apply patch
 
 ::
+
         cd oa
         patch -p1 <../patches/oa.diff
 
 Build debs
 
 ::
+
 	dpkg-buildpackage
 
 If everything went well, install the fresh liboa debs
 
 ::
+
 	cd ..
 	sudo dpkg -i liboa*deb
 
