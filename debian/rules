@@ -14,8 +14,27 @@ export ZLIB_HOME=/usr
 export FLEX_HOME=/usr
 export BISON_HOME=/usr
 
+# Setup SYSNAME. Use := syntax to prevent it being continuously reevaluated.
+UNAME_M         := $(shell uname -m)
+ifndef SYSNAME_OPTIONS
+  ifeq ($(UNAME_M), x86_64)
+    SYSNAME_OPTIONS     = _64
+  else
+    SYSNAME_OPTIONS     = _32
+  endif
+endif
+
+ifeq ($(UNAME_M),ia64)
+  SYSNAME_OPTIONS       = _64
+endif
+
+RAW_SYSNAME     := $(shell $(CURDIR)/build/bin/sysname)
+
+SYSNAME         := $(addsuffix $(SYSNAME_OPTIONS), $(RAW_SYSNAME))
+
+
 # shared library versions, option 1
-version=2.0.5
+version=2.0.84
 major=2
 # option 2, assuming the library is created as src/.libs/libfoo.so.2.0.5 or so
 #version=`ls src/.libs/lib*.so.* | \
@@ -46,7 +65,8 @@ clean:
 	rm -f build-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	$(MAKE) -C oa clean
+	$(MAKE) -C $(CURDIR)/oa clean
+	rm -fr $(CURDIR)/oa/lib
 
 	dh_clean 
 
@@ -57,7 +77,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/tmp
-	$(MAKE) PROD_DIR=$(CURDIR)/debian/tmp install_oa
+	$(MAKE) PROD_DIR=$(CURDIR)/debian/tmp/opt/oa -C $(CURDIR)/oa install_oa
 
 
 # Build architecture-independent files here.
@@ -68,10 +88,12 @@ binary-indep: install
 binary-arch: install
 	dh_testdir
 	dh_testroot
+	mkdir -p debian/tmp/etc/ld.so.conf.d
+	echo "/opt/oa/lib/$(SYSNAME)/$(OPTMODE)" > debian/tmp/etc/ld.so.conf.d/liboa.conf
 	dh_installchangelogs 
 	dh_installdocs
 	dh_installexamples
-#	dh_install
+	dh_install --sourcedir=debian/tmp
 #	dh_installmenu
 #	dh_installdebconf
 #	dh_installlogrotate

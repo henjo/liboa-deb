@@ -9,13 +9,15 @@ Homepage: http://www.si2.org
 Package: liboa-dev
 Section: libdevel
 Architecture: any
-Depends: liboa2 (= ${binary:Version})
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: liboa (= ${binary:Version})
+Description: Open Access C++ header files
+  OpenAccess is a community effort to provide true interoperability versus data exchange among IC design tools through an
+  open standard data access interface (API) and Reference Implementation supporting that.
 
-Package: liboa2
+Package: liboa
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Open Access C++ runtime library
+  OpenAccess is a community effort to provide true interoperability versus data exchange among IC design tools through an 
+  open standard data access interface (API) and Reference Implementation supporting that.

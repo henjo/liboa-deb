@@ -1,2 +1,6 @@
-usr/lib
-usr/include
+opt/oa/bin
+opt/oa/data
+opt/oa/lib
+opt/oa/doc
+
+
