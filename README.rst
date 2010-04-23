@@ -39,6 +39,12 @@ Unpack downloaded files
 	tar zxf /path/to/downloads/oaDoc_X.XpXXX_all.tar.gz
 	cd ..
 
+Apply patch
+
+::
+        cd oa
+        patch -p1 <../patches/oa.diff
+
 Build debs
 
 ::
