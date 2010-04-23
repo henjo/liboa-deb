@@ -1,0 +1,66 @@
+diff --git a/build/make/linux.variables b/build/make/linux.variables
+index 0771d9c..8934dc2 100644
+--- a/build/make/linux.variables
++++ b/build/make/linux.variables
+@@ -120,7 +120,7 @@ endif
+ 
+ F77_LIBS	= -Wl,-Bstatic -lg2c -Wl,-Bdynamic
+ MATH_LIBS	= -Wl,-Bdynamic -lm 
+-SYS_LIBS	= $(SYS_LIBS_PATH) -i -lm -lnsl -ldl -lelf
++SYS_LIBS	= $(SYS_LIBS_PATH) -i -lm -lnsl -ldl
+ DL_LIBS		= -Wl,-Bdynamic -ldl
+ X11_LIBPATH	= -L/usr/X11R6/lib
+ X11_LIBS	= -Wl,-Bstatic -lX11
+diff --git a/build/make/linux_rhel30_32.variables b/build/make/linux_rhel30_32.variables
+index 9c0f7e1..2b37629 100644
+--- a/build/make/linux_rhel30_32.variables
++++ b/build/make/linux_rhel30_32.variables
+@@ -18,5 +18,5 @@ SYS_LINUX	:=
+ 
+ 
+ # Compilers
+-CC              = /opt/gcc3.2.3/bin/gcc
+-CXX             = /opt/gcc3.2.3/bin/g++
++CC              = /usr/bin/gcc-4.2
++CXX             = /usr/bin/g++-4.2
+diff --git a/build/make/linux_rhel30_64.variables b/build/make/linux_rhel30_64.variables
+index 0cff84a..ad3eff0 100644
+--- a/build/make/linux_rhel30_64.variables
++++ b/build/make/linux_rhel30_64.variables
+@@ -2,18 +2,17 @@
+ # -*- mode: makefile -*-
+ # -*- eval: font-lock-fontify-buffer -*-
+ 
+-# $Revision: #15 $
++# $Revision: #14 $
+ 
+ include $(CONFIG_ROOT)/linux.variables
+ 
+ # set BUILD_PLATFORM
+ SYS_DEFINES     += -DBUILD_PLATFORM="\"linux_rhel30_64 gcc_3.2.3\""
+-SYS_DEFINES     += -DRHEL_30
+ 
+ 
+ SYS_LINUX	:= 
+ 
+ 
+ # Compilers
+-CC              = /opt/gcc3.2.3/bin/gcc
+-CXX             = /opt/gcc3.2.3/bin/g++
++CC              = /usr/bin/gcc-4.2
++CXX             = /usr/bin/g++-4.2
+diff --git a/oa/plugIns/NativeText/GNUmakefile b/oa/plugIns/NativeText/GNUmakefile
+index 37836d5..2506ae0 100644
+--- a/oa/plugIns/NativeText/GNUmakefile
++++ b/oa/plugIns/NativeText/GNUmakefile
+@@ -47,7 +47,9 @@ LIB_LDPATH      := $(PROD_LIB_DIR)
+ LIB_LDNAMES     := oaBase$(OPTCHAR)     \
+                    oaPlugIn$(OPTCHAR)   \
+                    oaCommon$(OPTCHAR)   \
+-                   oaDesign$(OPTCHAR)
++                   oaDesign$(OPTCHAR)   \
++		   oaTech$(OPTCHAR)     \
++		   oaDM$(OPTCHAR)
+ HFILES		=
+ 
+ SRC_DIR		:= .
